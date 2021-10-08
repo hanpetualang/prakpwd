@@ -1,6 +1,9 @@
 <?php
 echo "<head><title>My Guest Book</title></head>"; 
+//Variabel untuk buka guestbook.txt untuk dibaca
 $fp = fopen("guestbook.txt","r"); 
+//Membuat tabel untuk menampilkan data pada guestbook.txt
+//Text dipisahkan dengan simbol '|'
 echo "<table border=0>"; 
 while ($isi = fgets($fp,80)){  
     $pisah = explode("|",$isi); 
