@@ -1,16 +1,22 @@
+<?php
+    //Definisikan url untuk web service
+    $cr='NIM';
+    if(isset($_POST['searchButton'])){
+        $cr = empty($_POST['nim']) ? 'NIM' : strtoupper($_POST['nim']);
+        $url = "http://localhost:4443/code/prakpwd/praktikum10/post/getdatamhs.php?nim=" . $_POST['nim'];
+    }
+    else
+        $url = "http://localhost:4443/code/prakpwd/praktikum10/post/getdatamhs.php";
+?>
 <div>
-    <h3>Cari Mahasiswa [NIM]</h3>
+    <h3>Cari Mahasiswa [<?=$cr?>]</h3>
     <form action="#" method="post">
         <input name='nim' type="text">
         <button name='searchButton'>Cari</button>
     </form>
 </div>
 <?php
-    if(isset($_POST['searchButton']))
-        $url = "http://localhost:4443/code/prakpwd/praktikum10/post/getdatamhs.php?nim=" . $_POST['nim'];
-    else
-        //Definisikan url untuk web service
-        $url = "http://localhost:4443/code/prakpwd/praktikum10/post/getdatamhs.php";
+    
 
     //Buat http request ke url web service
     $client = curl_init($url);
