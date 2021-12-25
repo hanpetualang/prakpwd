@@ -4,6 +4,7 @@
     if(isset($_POST['searchButton'])){
         $cr = empty($_POST['nim']) ? 'NIM' : strtoupper($_POST['nim']);
         $url = "http://localhost:4443/code/prakpwd/praktikum10/post/getdatamhs.php?nim=" . $_POST['nim'];
+        error_reporting(0);
     }
     else
         $url = "http://localhost:4443/code/prakpwd/praktikum10/post/getdatamhs.php";
